@@ -143,8 +143,8 @@
 		var internalMult = 1.0;
 		var displayWidth = display.offsetWidth;
 		var displayHeight = display.offsetHeight;
-		var minWidth = 1024;
-		var minHeight = 768;
+		var minWidth = 320;
+		var minHeight = 240;
 		if(displayWidth < minWidth)
 			internalMult = minWidth / displayWidth;
 		if(displayHeight < minHeight)
@@ -154,8 +154,8 @@
 		cx.setKmsCanvas(display, internalWidth, internalHeight);
 		// Compute the size to be used for AI screenshots
 		var screenshotMult = 1.0;
-		var maxWidth = 1024;
-		var maxHeight = 768;
+		var maxWidth = 1920;
+		var maxHeight = 1200;
 		if(internalWidth > maxWidth)
 			screenshotMult = maxWidth / internalWidth;
 		if(internalHeight > maxHeight)
@@ -370,7 +370,7 @@
 
 <main class="relative w-full h-full">
 	<Nav />
-	<div class="absolute top-10 bottom-0 left-0 right-0">
+	<div class="absolute top-0 bottom-0 left-0 right-0">
 		<SideBar on:connect={handleConnect} on:reset={handleReset} handleTool={!configObj.needsDisplay || curVT == 7 ? handleTool : null} on:sidebarPinChange={handleSidebarPinChange}>
 			<slot></slot>
 		</SideBar>
