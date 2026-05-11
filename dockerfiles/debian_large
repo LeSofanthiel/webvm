@@ -8,12 +8,12 @@ RUN apt-get update && apt-get -y upgrade && \
 	nano netbase nodejs openssl procps python3 python3-cryptography \
 	python3-jinja2 python3-numpy python3-pandas python3-pip python3-scipy \
 	python3-six python3-yaml readline-common rsyslog ruby sensible-utils \
-	ssh systemd systemd-sysv tasksel tasksel-data udev vim wget whiptail \
-	xxd iptables isc-dhcp-client isc-dhcp-common kmod less netcat-openbsd
+	ssh systemd systemd-sysv tasksel tasksel-data udev nano wget whiptail \
+	xxd iptables isc-dhcp-client isc-dhcp-common kmod less netcat-openbsd zsh
 
 # Make a user, then copy over the /example directory
 RUN useradd -m user && echo "user:password" | chpasswd
 COPY --chown=user:user ./examples /home/user/examples
 RUN chmod -R +x  /home/user/examples/lua
 RUN echo 'root:password' | chpasswd
-CMD [ "/bin/bash" ]
+CMD [ "/bin/zsh" ]
