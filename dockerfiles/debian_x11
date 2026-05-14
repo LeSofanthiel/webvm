@@ -5,20 +5,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -y upgrade
 
 # Base
-RUN apt-get install -y \
-    apt-utils gcc \
-    python3 vim unzip ruby nodejs \
-    fakeroot dbus whiptail hexedit \
-    patch wamerican ucf manpages \
-    file luajit make lua5.4 dialog curl \
-    less cowsay netcat-openbsd nano \
-    sudo
+RUN apt-get install -y apt-utils gcc python3 vim unzip ruby nodejs fakeroot dbus whiptail hexedit patch wamerican ucf manpages \file luajit make lua5.4 dialog curl less cowsay netcat-openbsd nano sudo
 
 # X11
-RUN apt-get install -y xserver-xorg-core \
-    xserver-xorg-video-vesa xserver-xorg-input-libinput 
-    xinit x11-xserver-utils \
-    dbus-x11 xterm twm fonts-dejavu-core
+RUN apt-get install -y xserver-xorg-core xserver-xorg-video-vesa xserver-xorg-input-libinput xinit x11-xserver-utils dbus-x11 xterm twm fonts-dejavu-core
 
 RUN useradd -m -s /bin/bash user && echo "user:1234" | chpasswd
 
@@ -30,9 +20,7 @@ RUN chmod -R +x /home/user/examples/lua
 
 WORKDIR /home/user/
 
-ENV HOME="/home/user" TERM="xterm-256color" \
-    USER="user" SHELL="/bin/bash" EDITOR="nano" \
-    LANG="en_US.UTF-8" LC_ALL="C"
+ENV HOME="/home/user" TERM="xterm-256color" USER="user" SHELL="/bin/bash" EDITOR="nano" LANG="en_US.UTF-8" LC_ALL="C"
 
 # Minimal X session
 RUN echo "exec xterm" > /home/user/.xinitrc && chown user:user /home/user/.xinitrc
