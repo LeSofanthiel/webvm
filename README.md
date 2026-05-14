@@ -1,12 +1,6 @@
 # WebVM
 
-[![Discord server](https://img.shields.io/discord/988743885121548329?color=%235865F2&logo=discord&logoColor=%23fff)](https://discord.gg/yWRr2YnD9c)
-[![Issues](https://img.shields.io/github/issues/leaningtech/webvm)](https://github.com/leaningtech/webvm/issues)
-
-This repository hosts the source code for [https://webvm.io](https://webvm.io), a Linux virtual machine that runs in your browser.
-
-Try out the new Alpine / Xorg / i3 graphical environment: [https://webvm.io/alpine.html](https://webvm.io/alpine.html)
-
+This repository is one of my many attempts at getting X11 working in WebVM. You can access it [here.](https://lesofanthiel.github.io/webvm/)
 <img src="/assets/welcome_to_WebVM_alpine_2024.png" width="90%">
 
 ## What is WebVM?
