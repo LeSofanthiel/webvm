@@ -1,13 +1,14 @@
-FROM docker.io/i386/alpine:3.17
+FROM --platform=linux/386 alpine:3.20
+#FROM docker.io/i386/alpine:3.17
 
 RUN echo -e "\n@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 
-RUN apk add --no-cache bash nano curl python3 lua5.4 luajit xorg-server xf86-video-vesa xf86-input-libinput xinit xterm dbus font-dejavu ttf-freefont twm mesa-dri-gallium
+# Minimal X11 stack
+RUN apk add --no-cache xorg-server xf86-video-fbdev xf86-input-libinput xinit xterm twm mesa-dri-gallium bash nano
 
+# Required user for WebVM
 RUN adduser -D -s /bin/bash user && echo "user:password" | chpasswd && echo "root:password" | chpasswd
-
-WORKDIR /home/user
 
 ENV HOME=/home/user USER=user SHELL=/bin/bash TERM=xterm-256color
 
-CMD ["/bin/bash"]
+CMD ["/bin/sh"]
