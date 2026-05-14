@@ -64,8 +64,8 @@
 	export let handleTool;
 </script>
 
-<div class="flex flex-row w-8 h-full bg-neutral-700" >
-	<div class="flex flex-col shrink-0 w-8 text-gray-300">
+<div class="flex flex-row w-14 h-full bg-neutral-700" >
+	<div class="flex flex-col shrink-0 w-14 text-gray-300">
 		{#each icons as i}
 			{#if i}
 				<Icon
