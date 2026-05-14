@@ -2,7 +2,7 @@ FROM docker.io/i386/alpine:3.17
 
 RUN echo -e "\n@testing https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 
-RUN apk add --no-cache bash nano curl python3 lua5.4 luajit xorg-server xf86-video-vesa xf86-input-libinput xinit xterm dbus font-dejavu ttf-freefont twm mesa-dri-swrast
+RUN apk add --no-cache bash nano curl python3 lua5.4 luajit xorg-server xf86-video-vesa xf86-input-libinput xinit xterm dbus font-dejavu ttf-freefont twm mesa-dri-gallium
 
 RUN adduser -D -s /bin/bash user && echo "user:password" | chpasswd && echo "root:password" | chpasswd
 
