@@ -19,9 +19,7 @@ export const introMessage = [
   "   The system will be starting soon. Once downloaded it will start much faster.",
   "",
   "   Once you are loaded, you can start X with 'xinit -- :0 vt7' to start xterm.",
-  "",
   "     TWM is also included but seems to hang the VM.",
-  "   Enjoy, I guess.",
 ];
 export const errorMessage = [
   color + "CheerpX could not start" + normal,
