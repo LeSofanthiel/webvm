@@ -3,7 +3,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get clean && apt-get update && apt-get -y upgrade
 RUN apt-get -y install xserver-xorg-core \
 	xserver-xorg-input-libinput x11-apps \
-	xfonts-100dpi xinit xterm twm bash nano
+	xfonts-100dpi xinit xterm twm bash nano procps
 RUN apt-get -y remove xserver-xorg-video-amdgpu \
 	xserver-xorg-video-ati xserver-xorg-video-intel \
 	xserver-xorg-video-nouveau xserver-xorg-video-qxl \
