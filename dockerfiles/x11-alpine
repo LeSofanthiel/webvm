@@ -1,24 +1,8 @@
 FROM --platform=i386 i386/alpine:latest
 
-RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
-    apk update && apk upgrade --no-cache
+RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && apk update && apk upgrade --no-cache
 
-RUN apk add --no-cache \
-    xorg-server \
-    xf86-input-libinput \
-    xf86-input-keyboard \
-    xf86-input-mouse \
-    x11-apps \
-    xinit \
-    xterm \
-    bash \
-    nano \
-    procps \
-    jwm \
-    font-misc-misc \
-    font-cursor-misc \
-    font-bitstream-100dpi \
-    shadow
+RUN apk add --no-cache xorg-server xf86-input-libinput xf86-input-keyboard xf86-input-mouse x11-apps xinit xterm bash nano procps jwm font-misc-misc font-cursor-misc font-bitstream-100dpi shadow
 
 RUN useradd -m -s /bin/bash user && echo "user:user" | chpasswd
 
