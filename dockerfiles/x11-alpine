@@ -2,7 +2,7 @@ FROM --platform=i386 i386/alpine:latest
 
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && apk update && apk upgrade --no-cache
 
-RUN apk add --no-cache xorg-server xf86-input-libinput xinit xterm bash nano procps jwm font-misc-misc font-cursor-misc shadow
+RUN apk add --no-cache xorg-server xf86-input-libinput xinit xterm bash nano procps jwm font-misc-misc font-cursor-misc shadow xrandr xev
 
 RUN useradd -m -s /bin/bash user && echo "user:user" | chpasswd
 
