@@ -2,8 +2,22 @@ FROM --platform=i386 i386/alpine:latest
 
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && apk update && apk upgrade --no-cache
 
-RUN apk add --no-cache xorg-server xf86-input-libinput xinit xterm bash nano procps jwm font-misc-misc font-cursor-misc shadow xrandr xev
-
+# RUN apk add --no-cache xorg-server xf86-input-libinput xf86-video-dummy xinit xterm bash nano procps jwm font-misc-misc font-cursor-misc shadow xrandr xev
+# Testing I3
+RUN apk update && apk add --no-cache \
+    xorg-server \
+    xf86-video-dummy \
+    xf86-input-libinput \
+    xinit \
+    xterm \
+    i3wm \
+    i3status \
+    dmenu \
+    dbus \
+    font-dejavu \
+    sudo \
+    bash \
+    shadow
 RUN useradd -m -s /bin/bash user && echo "user:user" | chpasswd
 
 COPY --chown=user:user ./scripts/99-screen-resize.sh /etc/X11/xinit/xinitrc.d/99-screen-resize.sh
