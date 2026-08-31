@@ -17,7 +17,9 @@ RUN apk update && apk add --no-cache \
     font-dejavu \
     sudo \
     bash \
-    shadow
+    shadow \
+    xrandr \
+    xev
 RUN useradd -m -s /bin/bash user && echo "user:user" | chpasswd
 
 COPY --chown=user:user ./scripts/99-screen-resize.sh /etc/X11/xinit/xinitrc.d/99-screen-resize.sh
