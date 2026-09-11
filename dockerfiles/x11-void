@@ -1,0 +1,32 @@
+FROM --platform=linux/386 ghcr.io/void-linux/void-glibc:latest
+
+RUN xbps-install -Syu && \
+    xbps-install -y \
+    xorg-minimal \
+    xauth \
+    jwm \
+    xterm \
+    dbus \
+    font-misc-misc \
+    terminus-font \
+    dejavu-fonts-ttf \
+    zsh \
+    sudo && \
+    xbps-remove -Oo && \
+    rm -rf /var/cache/xbps/*
+
+RUN useradd -m -G wheel -s /bin/bash webvm && \
+    echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+USER user
+ENV HOME=/home/user
+WORKDIR /home/user
+
+# Set the default display variable (WebVM's X11 implementation usually targets :0)
+ENV DISPLAY=:0
+
+# Ensure a basic JWM configuration exists (copies the system default to the user's home)
+RUN cp /etc/system.jwmrc /home/webvm/.jwmrc
+
+# Default command to start the window manager
+CMD ["zsh"]
